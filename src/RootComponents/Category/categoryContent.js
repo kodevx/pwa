@@ -1,4 +1,4 @@
-import React, { Fragment, Suspense } from 'react';
+import React, { Fragment, Suspense, useEffect } from 'react';
 import { func, shape, string } from 'prop-types';
 
 import { useCategoryContent } from '@magento/peregrine/lib/talons/RootComponents/Category';
@@ -28,6 +28,7 @@ const CategoryContent = props => {
 
     const {
         categoryName,
+        loadFilters,
         filters,
         handleLoadFilters,
         handleOpenFilters,
@@ -35,6 +36,11 @@ const CategoryContent = props => {
         pageTitle,
         totalPagesFromData
     } = talonProps;
+
+    useEffect(() => {
+        // console.log('useffect called');
+        handleLoadFilters();
+    });
 
     const classes = mergeClasses(defaultClasses, props.classes);
 
@@ -57,32 +63,40 @@ const CategoryContent = props => {
     // (hover, focus, click), simply add the talon's `loadFilters` prop as
     // part of the conditional here.
     const modal = filters ? <FilterModal filters={filters} /> : null;
-
+    // console.log('filters',filters);
     const content =
         totalPagesFromData === 0 ? (
             <NoProductsFound categoryId={categoryId} />
         ) : (
-            <Fragment>
-                <section className={classes.gallery}>
-                    <Gallery items={items} />
-                </section>
-                <div className={classes.pagination}>
-                    <Pagination pageControl={pageControl} />
-                </div>
-            </Fragment>
-        );
+                <Fragment>
+                    <h1 className={classes.title}>
+                        <div className={classes.categoryTitle}>{categoryName}</div>
+                    </h1>
+                    <section className={classes.gallery}>
+                        <Gallery items={items} />
+                    </section>
+                    <div className={classes.pagination}>
+                        <Pagination pageControl={pageControl} />
+                    </div>
+                </Fragment>
+            );
     return (
         <Fragment>
-            <Breadcrumbs categoryId={categoryId} />
-            <Title>{pageTitle}</Title>
-            <article className={classes.root}>
-                <h1 className={classes.title}>
+            <div className={classes.container}>
+                <Breadcrumbs categoryId={categoryId} />
+                <Title>{pageTitle}</Title>
+                <article className={classes.root}>
+                    <div className={classes.headerButtons}>
+                        <Suspense fallback={<div>Loading...</div>}>
+                            {modal}
+                        </Suspense>
+                    </div>
+                    {/* <h1 className={classes.title}>
                     <div className={classes.categoryTitle}>{categoryName}</div>
-                </h1>
-                {header}
-                {content}
-                <Suspense fallback={null}>{modal}</Suspense>
-            </article>
+                </h1> */}
+                    {content}
+                </article>
+            </div>
         </Fragment>
     );
 };

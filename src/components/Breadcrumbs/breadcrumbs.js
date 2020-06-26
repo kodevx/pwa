@@ -65,7 +65,7 @@ const Breadcrumbs = props => {
     const currentProductNode = currentProduct ? (
         <Fragment>
             <span className={classes.divider}>/</span>
-            <span className={classes.text}>{currentProduct}</span>
+            <span className={classes.currentCategory}>{currentProduct}</span>
         </Fragment>
     ) : null;
 

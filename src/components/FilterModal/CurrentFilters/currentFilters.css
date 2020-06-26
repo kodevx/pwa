@@ -1,7 +1,7 @@
 .root {
     display: grid;
     gap: 0.5rem;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
     margin: 0 1.5rem;
     overflow: auto;
     padding: 0.5rem 0;

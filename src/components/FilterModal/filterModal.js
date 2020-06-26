@@ -20,6 +20,7 @@ import FILTER_INTROSPECTION from '../../queries/introspection/filterIntrospectio
  */
 const FilterModal = props => {
     const { filters } = props;
+    console.log("FilterModal",filters);
     const talonProps = useFilterModal({
         filters,
         queries: { filterIntrospection: FILTER_INTROSPECTION }
@@ -34,7 +35,8 @@ const FilterModal = props => {
         handleReset,
         isOpen
     } = talonProps;
-
+    
+    console.log("open",isOpen);
     const classes = mergeClasses(defaultClasses, props.classes);
     const modalClass = isOpen ? classes.root_open : classes.root;
 
@@ -59,14 +61,15 @@ const FilterModal = props => {
     );
 
     return (
-        <Modal>
-            <aside className={modalClass}>
+        // <Modal>
+            // <aside className={classes.root_open}>
+            <div>
                 <div className={classes.body}>
                     <div className={classes.header}>
-                        <h2 className={classes.headerTitle}>{'Filter By'}</h2>
-                        <button onClick={handleClose}>
+                        <h2 className={classes.headerTitle}>{'FILTERS'}</h2>
+                        {/* <button onClick={handleClose}>
                             <Icon src={CloseIcon} />
-                        </button>
+                        </button> */}
                     </div>
                     <CurrentFilters
                         filterApi={filterApi}
@@ -78,11 +81,12 @@ const FilterModal = props => {
                 <FilterFooter
                     applyFilters={handleApply}
                     hasFilters={!!filterState.size}
-                    isOpen={isOpen}
+                    isOpen={true}
                     resetFilters={handleReset}
                 />
-            </aside>
-        </Modal>
+            </div>
+            // </aside>
+        // </Modal>
     );
 };
 

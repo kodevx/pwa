@@ -23,13 +23,13 @@ const FilterBlock = props => {
     return (
         <li className={classes.root}>
             <button
-                className={classes.trigger}
+                className={classes.btn}
                 onClick={handleClick}
                 type="button"
             >
                 <span className={classes.header}>
                     <span className={classes.name}>{name}</span>
-                    <Icon src={iconSrc} />
+                    {/* <Icon src={iconSrc} /> */}
                 </span>
             </button>
             <Form className={listClass}>

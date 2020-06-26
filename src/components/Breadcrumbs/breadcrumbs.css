@@ -1,8 +1,10 @@
 .root {
-    margin-left: 1rem;
+ /* margin-left: 1rem; */
+    margin-left: 2.25rem;
     margin-top: 1rem;
-    font-size: 0.875rem;
-
+    font-size: 13px;
+    font-family: sans-serif;
+    line-height: 11px;
     /* Permanent height to prevent pop-in. */
     height: 0.875rem;
 
@@ -22,9 +24,10 @@
 
 .link {
     composes: text;
-    text-decoration: underline;
+ /* text-decoration: underline; */
 }
 
 .currentCategory {
     composes: text;
+    font-weight: 600;
 }

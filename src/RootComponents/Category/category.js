@@ -45,7 +45,7 @@ const Category = props => {
     const [runQuery, queryResponse] = useLazyQuery(GET_CATEGORY);
     const { loading, error, data } = queryResponse;
     const { search } = useLocation();
-    console.log('Data',data);
+    // console.log('Data',data);
     // Keep track of the search terms so we can tell when they change.
     const previousSearch = useRef(search);
 
