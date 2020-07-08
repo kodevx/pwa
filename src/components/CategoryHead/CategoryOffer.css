@@ -1,0 +1,27 @@
+.root{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr auto;
+    grid-gap: 4px;
+}
+
+.offerText{
+    color: white; 
+    background-color: #95247b;
+    z-index: 10;
+    padding:  7px 6px;
+    position: absolute;
+    bottom: 3px;
+    font-size: 10px;
+}
+
+.image{
+    position: relative;
+}
+
+.text{
+    font-size: 15px;
+    font-weight: 700;
+    font-family: sans-serif;
+    color: #212121;
+}

@@ -38,9 +38,11 @@
 
 .list_expanded {
     composes: list;
+    transition: all ease-out 3s;
 }
 
 .list_collapsed {
     composes: list;
     display: none;
+    transition: all ease-in 0.5s ;
 }

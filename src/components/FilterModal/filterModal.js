@@ -20,7 +20,7 @@ import FILTER_INTROSPECTION from '../../queries/introspection/filterIntrospectio
  */
 const FilterModal = props => {
     const { filters } = props;
-    console.log("FilterModal",filters);
+    // console.log("FilterModal",filters);
     const talonProps = useFilterModal({
         filters,
         queries: { filterIntrospection: FILTER_INTROSPECTION }
@@ -36,7 +36,7 @@ const FilterModal = props => {
         isOpen
     } = talonProps;
     
-    console.log("open",isOpen);
+    // console.log("open",isOpen);
     const classes = mergeClasses(defaultClasses, props.classes);
     const modalClass = isOpen ? classes.root_open : classes.root;
 

@@ -1,0 +1,50 @@
+.root{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+}
+
+.category{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 1fr auto;
+    grid-gap: 30px;
+    border-right: 1px solid rgb(var(--venia-border));
+    padding: 15px 35px 15px 30px;
+}
+
+.actions{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 24px;
+    padding: 15px 15px 15px 35px;
+}
+
+.title{
+   grid-column: 1/-1 ;
+   display: flex;
+   justify-content: space-between;
+}
+
+.text{
+  font-size: 16px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #95247b;
+}
+
+.links{
+  font-size: 16px;
+  font-weight: 400;
+  font-family: sans-serif;
+  color: #212121;
+}
+
+.offerBlock{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+  justify-items: center;
+}

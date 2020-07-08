@@ -1,0 +1,27 @@
+.root{
+   /* border: 2px solid orangered; */
+   display: flex;
+   justify-content: space-evenly;
+   padding: 0 0 0 15px;
+}
+
+/* width */
+::-webkit-scrollbar {
+   width: 7px;
+ }
+ 
+ /* Track */
+ ::-webkit-scrollbar-track {
+   background: #DADEDF; 
+ }
+  
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+   background: #800080; 
+ }
+ 
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+   background: #800080; 
+ }
+

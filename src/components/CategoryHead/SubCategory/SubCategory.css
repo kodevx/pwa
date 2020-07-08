@@ -1,0 +1,33 @@
+.root{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
+.title{
+    grid-column: 1 / -1;
+    text-decoration: none;
+}
+
+.content{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 12px;  
+}
+
+.title{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: sans-serif;
+    color: #95247b;
+}
+
+.links{
+   color: #212121;
+   font-size: 14px;
+   font-weight: 400;
+   font-family: sans-serif;
+   text-decoration: none;
+}

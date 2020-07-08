@@ -20,7 +20,7 @@ import FILTER_INTROSPECTION from '../../queries/introspection/filterIntrospectio
 
 const Category = props => {
     const { id, pageSize } = props;
-    console.log('Props',props);
+    // console.log('Props',props);
     const classes = mergeClasses(defaultClasses, props.classes);
     const [paginationValues, paginationApi] = usePagination();
     const { currentPage, totalPages } = paginationValues;
