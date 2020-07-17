@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, History } from 'react-router-dom';
 
 import { fullPageLoadingIndicator } from '@magento/venia-ui/lib/components/LoadingIndicator';
 import MagentoRoute from '@magento/venia-ui/lib/components/MagentoRoute';
@@ -16,7 +16,7 @@ const Routes = () => {
                 <Route exact path='/foo'>
                     <Foo />
                 </Route>
-                {/* <Route exact path="/search.html">
+                <Route exact path="/search.html">
                     <Search />
                 </Route>
                 <Route exact path="/create-account">
@@ -24,9 +24,6 @@ const Routes = () => {
                 </Route>
                 <Route>
                     <MagentoRoute />
-                </Route> */}
-                <Route>
-                    <Category id={28}/>
                 </Route>
             </Switch>
         </Suspense>

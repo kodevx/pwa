@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, resourceUrl } from '@magento/venia-drivers';
 import { mergeClasses } from '../../classify';
 import defaultClasses from './CategoryMenu.css'
 import Button from '@magento/venia-ui/lib/components/Button';
@@ -16,7 +17,7 @@ const CategoryMenu = props => {
             <li>
                 <div className={classes.root}>
                     <Button className={classes.dropBtn}>
-                        <a className={classes.links} href={category.link}>{category.name}</a> 
+                        <Link to={resourceUrl(`/${category.link}`)} replace>{category.name}</Link> 
                     </Button>
                     <div className={classes.menu}>
                         <MenuContent subCategory={category.children} categoryOffers={category.right_sidebar_content} />

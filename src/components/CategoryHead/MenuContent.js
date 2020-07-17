@@ -1,5 +1,6 @@
 import React from 'react';
 import { mergeClasses } from '../../classify';
+import { Link, resourceUrl } from '@magento/venia-drivers';
 import defaultclasses from './MenuContent.css'
 import SubCategory from './SubCategory';
 import CategoryOffer from './CategoryOffer';
@@ -26,7 +27,7 @@ const MenuContent = props => {
       <div className={classes.actions}>
         <div className={classes.title}>
           <div className={classes.text}>{title}</div>
-          <a className={classes.links} href={link}>{link_text}</a>
+          <Link className={classes.links} to={resourceUrl(`/${link}`)}>{link_text}</Link>
         </div>
         <div className={classes.offerBlock}>
           {offerContent}
