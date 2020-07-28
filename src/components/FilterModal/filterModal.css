@@ -33,6 +33,9 @@
  /* border-bottom: 1px solid rgb(var(--venia-border)); */
     border-right: 1px solid rgb(var(--venia-border));
     overflow: auto;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+    grid-row: 1/-1;
 }
 
 .header {

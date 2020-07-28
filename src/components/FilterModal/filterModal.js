@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { Fragment,useMemo } from 'react';
 import { array, arrayOf, shape, string } from 'prop-types';
 import { X as CloseIcon } from 'react-feather';
 import { useFilterModal } from '@magento/peregrine/lib/talons/FilterModal';
@@ -11,6 +11,11 @@ import FilterBlock from './filterBlock';
 import FilterFooter from './filterFooter';
 import defaultClasses from './filterModal.css';
 
+import Gallery from '../Gallery';
+import CategorySort from '../CategorySort';
+import Pagination from '../Pagination';
+import NoProductsFound from '../../RootComponents/Category/NoProductsFound';
+
 import FILTER_INTROSPECTION from '../../queries/introspection/filterIntrospectionQuery.graphql';
 
 /**
@@ -19,8 +24,9 @@ import FILTER_INTROSPECTION from '../../queries/introspection/filterIntrospectio
  * @param {Object} props.filters - filters to display
  */
 const FilterModal = props => {
-    const { filters } = props;
+    const { filters,items,categoryName,categoryId,pageControl,totalPagesFromData } = props;
     // console.log("FilterModal",filters);
+    // console.log('Items',items);
     const talonProps = useFilterModal({
         filters,
         queries: { filterIntrospection: FILTER_INTROSPECTION }
@@ -54,16 +60,39 @@ const FilterModal = props => {
                         group={group}
                         items={items}
                         name={groupName}
+                        applyFilters={handleApply}
                     />
                 );
             }),
         [filterApi, filterItems, filterNames, filterState]
     );
 
+    const content =
+        totalPagesFromData === 0 ? (
+            <NoProductsFound categoryId={categoryId} />
+        ) : (
+                <Fragment>
+                    <h1 className={classes.title}>
+                        <div className={classes.categoryTitle}>{categoryName}</div>
+                    </h1>
+                        <CurrentFilters
+                            filterApi={filterApi}
+                            filterNames={filterNames}
+                            filterState={filterState}
+                        />
+                    <section className={classes.gallery}>
+                        <Gallery items={items} />
+                    </section>
+                    <div className={classes.pagination}>
+                        <Pagination pageControl={pageControl} />
+                    </div>
+                </Fragment>
+            );
+
     return (
         // <Modal>
             // <aside className={classes.root_open}>
-            <div>
+            <div className={classes.root}>
                 <div className={classes.body}>
                     <div className={classes.header}>
                         <h2 className={classes.headerTitle}>{'FILTERS'}</h2>
@@ -71,19 +100,17 @@ const FilterModal = props => {
                             <Icon src={CloseIcon} />
                         </button> */}
                     </div>
-                    <CurrentFilters
-                        filterApi={filterApi}
-                        filterNames={filterNames}
-                        filterState={filterState}
-                    />
                     <ul className={classes.blocks}>{filtersList}</ul>
+                    <FilterFooter
+                       applyFilters={handleApply}
+                       hasFilters={!!filterState.size}
+                       isOpen={true}
+                       resetFilters={handleReset}
+                    />
                 </div>
-                <FilterFooter
-                    applyFilters={handleApply}
-                    hasFilters={!!filterState.size}
-                    isOpen={true}
-                    resetFilters={handleReset}
-                />
+                <div>
+                  {content}
+                </div>
             </div>
             // </aside>
         // </Modal>
@@ -108,3 +135,26 @@ FilterModal.propTypes = {
 };
 
 export default FilterModal;
+
+//  <div>
+// <div className={classes.body}>
+//     <div className={classes.header}>
+//         <h2 className={classes.headerTitle}>{'FILTERS'}</h2>
+//          <button onClick={handleClose}>
+//             <Icon src={CloseIcon} />
+//         </button> 
+//     </div>
+//     <CurrentFilters
+//         filterApi={filterApi}
+//         filterNames={filterNames}
+//         filterState={filterState}
+//     />
+//     <ul className={classes.blocks}>{filtersList}</ul>
+// </div>
+// <FilterFooter
+//     applyFilters={handleApply}
+//     hasFilters={!!filterState.size}
+//     isOpen={true}
+//     resetFilters={handleReset}
+// />
+// </div>  

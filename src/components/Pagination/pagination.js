@@ -32,48 +32,40 @@ const Pagination = props => {
             tiles.map(tileNumber => {
                 return (
                     <Tile
-                        isActive={tileNumber === currentPage}
+                    isActive={tileNumber === currentPage}
                         key={tileNumber}
                         number={tileNumber}
                         onClick={setPage}
                     />
-                );
+                    );
             }),
-        [currentPage, tiles, setPage]
-    );
-
-    if (totalPages === 1) {
+            [currentPage, tiles, setPage]
+            );
+            
+            if (totalPages === 1) {
         return null;
     }
 
+    const prevNavButton = isActiveLeft ? 
+                        <NavButton
+                        name={navButtons.prevPage.name}
+                        text={"Prev"}
+                        active={isActiveLeft}
+                        onClick={handleNavBack}
+                        buttonLabel={navButtons.prevPage.buttonLabel}/>: null;
+    
     const classes = mergeClasses(defaultClasses, props.classes);
 
     return (
         <div className={classes.root}>
-            <NavButton
-                name={navButtons.firstPage.name}
-                active={isActiveLeft}
-                onClick={handleLeftSkip}
-                buttonLabel={navButtons.firstPage.buttonLabel}
-            />
-            <NavButton
-                name={navButtons.prevPage.name}
-                active={isActiveLeft}
-                onClick={handleNavBack}
-                buttonLabel={navButtons.prevPage.buttonLabel}
-            />
+            {prevNavButton}
             {navigationTiles}
             <NavButton
                 name={navButtons.nextPage.name}
+                text={"Next"}
                 active={isActiveRight}
                 onClick={handleNavForward}
                 buttonLabel={navButtons.nextPage.buttonLabel}
-            />
-            <NavButton
-                name={navButtons.lastPage.name}
-                active={isActiveRight}
-                onClick={handleRightSkip}
-                buttonLabel={navButtons.lastPage.buttonLabel}
             />
         </div>
     );

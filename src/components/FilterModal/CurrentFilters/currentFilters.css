@@ -1,10 +1,10 @@
 .root {
-    display: grid;
-    gap: 0.5rem;
-    grid-auto-flow: row;
-    margin: 0 1.5rem;
+    display: flex;
+    gap: 1rem;
+    /* grid-auto-flow: column; */
+    /* margin: 0 1.5rem; */
     overflow: auto;
-    padding: 0.5rem 0;
+    padding: 0.9rem 0 0;
 }
 
 .root:empty {

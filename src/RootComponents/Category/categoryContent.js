@@ -2,6 +2,7 @@ import React, { Fragment, Suspense, useEffect } from 'react';
 import { func, shape, string } from 'prop-types';
 
 import { useCategoryContent } from '@magento/peregrine/lib/talons/RootComponents/Category';
+import { fullPageLoadingIndicator } from '@magento/venia-ui/lib/components/LoadingIndicator';
 
 import NoProductsFound from './NoProductsFound';
 import { mergeClasses } from '../../classify';
@@ -62,7 +63,7 @@ const CategoryContent = props => {
     // If you want to defer the loading of the FilterModal until user interaction
     // (hover, focus, click), simply add the talon's `loadFilters` prop as
     // part of the conditional here.
-    const modal = filters ? <FilterModal filters={filters} /> : null;
+    const modal = filters ? <FilterModal items={items} filters={filters} categoryName={categoryName} classes={classes} totalPagesFromData={totalPagesFromData} {...props}/> : null;
     // console.log('filters',filters);
     const content =
         totalPagesFromData === 0 ? (
@@ -85,16 +86,13 @@ const CategoryContent = props => {
             <div className={classes.container}>
                 <Breadcrumbs categoryId={categoryId} />
                 <Title>{pageTitle}</Title>
-                <article className={classes.root}>
-                    <div className={classes.headerButtons}>
-                        <Suspense fallback={<div>Loading...</div>}>
+                <article>
+                    <Suspense fallback={fullPageLoadingIndicator}>
                             {modal}
-                        </Suspense>
-                    </div>
+                    </Suspense>
                     {/* <h1 className={classes.title}>
                     <div className={classes.categoryTitle}>{categoryName}</div>
                 </h1> */}
-                    {content}
                 </article>
             </div>
         </Fragment>

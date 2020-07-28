@@ -9,7 +9,8 @@ import defaultClasses from './currentFilter.css';
 
 const CurrentFilter = props => {
     const { group, groupName, item, removeItem } = props;
-    const text = `${groupName}: ${item.title}`;
+    // const text = `${groupName}: ${item.title}`;
+    const text =  `${item.title}`;
     const classes = mergeClasses(defaultClasses, props.classes);
 
     const handleClick = useCallback(() => {

@@ -3,7 +3,7 @@ import { bool, func, number, oneOfType, shape, string } from 'prop-types';
 import setValidator from '@magento/peregrine/lib/validators/set';
 
 import FilterDefault from './filterDefault';
-import Swatch from '@magento/venia-ui/lib/components/ProductOptions/swatch';
+import Swatch from '../../ProductOptions/swatchFilter';
 
 const FilterItem = props => {
     const { filterApi, filterState, group, isSwatch, item } = props;

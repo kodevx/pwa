@@ -9,11 +9,12 @@ const Tile = props => {
 
     const handleClick = useCallback(() => onClick(number), [onClick, number]);
 
-    const marker = isActive ? <div className={classes.marker} /> : null;
-
+    // const marker = isActive ? <div className={classes.marker} /> : null;
+    const marker = isActive ? classes.marker : classes.button;
+ 
     return (
-        <button className={classes.button} onClick={handleClick}>
-            {marker}
+        <button className={marker} onClick={handleClick}>
+            {/* {marker} */}
             {number}
         </button>
     );

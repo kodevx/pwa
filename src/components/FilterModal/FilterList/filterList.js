@@ -24,6 +24,7 @@ const FilterList = props => {
         () =>
             items.map(item => {
                 const { title, value } = item;
+                // console.log("Item",item);
                 const key = `item-${group}-${value}`;
 
                 // create an element for each item

@@ -10,7 +10,7 @@ const CategoryHead = props => {
    const { data } = props;
    const talonProps = useCategoryHead({ data });
    const { category } = talonProps;
-   console.log('Parsed Data: ',category);
+   // console.log('Parsed Data: ',category);
    const Categories = category ? category.map(category => <CategoryMenu key={category.id} data={category} />) : null;
    const CategoryHeads = category ? Categories : null;
 

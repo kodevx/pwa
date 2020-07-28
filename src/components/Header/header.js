@@ -29,11 +29,11 @@ const Header = props => {
     } = useHeader();
 
     const { loading, error, data } = useQuery(GET_MENU);
-    console.log('GraphQL Data: ',data);
+    // console.log('GraphQL Data: ',data);
 
     useEffect(() =>{
         if(!loading){
-            console.log("Data : ",JSON.parse(data.TopMenu));
+            // console.log("Data : ",JSON.parse(data.TopMenu));
         } 
     },[loading,data]);
 

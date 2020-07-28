@@ -1,0 +1,30 @@
+.root {
+    composes: root from './tile.css';
+    background-color: rgb(var(--venia-swatch-bg));
+    border-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    outline: none;
+    --venia-swatch-bg: var(--venia-grey);
+}
+
+.root_selected {
+    composes: root;
+    background-image: linear-gradient(-45deg, rgba(0, 0, 0, 0.2), transparent);
+}
+.root_focused {
+    composes: root;
+}
+.root_selected_focused {
+    composes: root_selected;
+}
+
+.title{
+    margin-left: 1rem;
+}
+
+.colorGroup{
+    display: flex;
+    align-items: center;
+}

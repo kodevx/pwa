@@ -35,7 +35,7 @@ class NavButton extends Component {
     };
 
     render() {
-        const { classes, name, active, onClick, buttonLabel } = this.props;
+        const { classes, name, active, onClick, buttonLabel,text } = this.props;
         let attrs;
         // The chevron icon does not have a fill or any sizing issues that
         // need to be handled with attributes in props
@@ -51,11 +51,11 @@ class NavButton extends Component {
 
         return (
             <button
-                className={className}
+                className={classes.buttonArrow}
                 aria-label={buttonLabel}
                 onClick={onClick}
             >
-                <Icon src={NavIcons[name]} attrs={attrs} />
+                {text}
             </button>
         );
     }

@@ -3,6 +3,16 @@
     margin: 0px;
 }
 
+.root:hover{
+    box-shadow: 0.1px 1px 12px 0.5px #DADEDF;
+    transition: ease-in-out 0.52s;
+}
+
+@keyframes opacity { 
+    from { opacity:0; } 
+    to { opacity: 1; } 
+}
+
 .images {
     display: grid;
     grid-template-areas: 'main';
@@ -34,7 +44,7 @@
     font-size: 14px;
     line-height: 21px;
     font-weight:700;
-    margin: 0.5rem 0;
+    margin: 0.55rem 0.5rem;
     min-height: 1rem;
 }
 
