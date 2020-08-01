@@ -56,3 +56,12 @@
 .blocks {
     padding: 0.5rem 1.5rem;
 }
+
+.text{
+    font-size: 12px;
+    font-family: sans-serif;
+    color: rgb(var(--venia-purple));
+    letter-spacing: 1px;
+    font-weight: bold;
+    outline: none; 
+}

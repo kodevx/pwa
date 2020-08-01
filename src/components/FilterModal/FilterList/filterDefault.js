@@ -15,7 +15,7 @@ const FilterDefault = props => {
     return (
         <button className={classes.root} {...restProps}>
             <span className={iconClassName}>
-                {isSelected && <Icon src={Checkmark} size={14} />}
+                {isSelected && <span> <Icon src={Checkmark} size={14}/> </span>}
             </span>
             <span>{label}</span>
         </button>

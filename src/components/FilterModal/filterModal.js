@@ -96,9 +96,9 @@ const FilterModal = props => {
                 <div className={classes.body}>
                     <div className={classes.header}>
                         <h2 className={classes.headerTitle}>{'FILTERS'}</h2>
-                        {/* <button onClick={handleClose}>
-                            <Icon src={CloseIcon} />
-                        </button> */}
+                        <button className={classes.text} disabled={!filterState.size} onClick={handleReset} >
+                            CLEAR ALL
+                        </button>
                     </div>
                     <ul className={classes.blocks}>{filtersList}</ul>
                     <FilterFooter

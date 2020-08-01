@@ -14,7 +14,7 @@ const CategoryOffer = props => {
         <div className={classes.root}>
           <div className={classes.image}>
             <Link to={resourceUrl(`/${url}`)}>
-              <img src={image1} height="150px" width="100px" alt="Product Image" />
+              <img src={image} height="150px" width="100px" alt="Product Image" />
             </Link>
             <div className={classes.offerText}>{offer}</div>
           </div>

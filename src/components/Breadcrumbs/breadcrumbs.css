@@ -20,10 +20,12 @@
 
 .divider {
     composes: text;
+    color: rgb(var(--venia-grey-darker));
 }
 
 .link {
     composes: text;
+    color: rgb(var(--venia-grey-darker));
  /* text-decoration: underline; */
 }
 
