@@ -1,0 +1,83 @@
+.root{
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: 1fr;
+    font-weight: bold;
+    align-items: center;
+}
+
+.container{
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr 0fr;
+}
+
+.input{
+    font-size: 17px;
+    letter-spacing: 2.5px;
+    font-family: sans-serif;
+    border: 1px solid rgb(var(--venia-border));
+    padding: 0 14px;
+    letter-spacing: 0.8px;
+}
+.input::placeholder{
+    font-size: 15px;
+    letter-spacing: 0.1rem;
+    font-family: sans-serif;
+    letter-spacing: 0.8px;
+}
+.input:focus{
+    outline: 0.1px solid rgb(var(--venia-teal));
+}
+
+.title{
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.infoText{
+    color: #aaa;
+    font-size: 13px;
+    font-family: sans-serif;
+    opacity: 1;
+    animation: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) normal;
+}
+
+.statusSuccess{
+    composes: infoText;
+    font-size: 12px;
+    font-weight: bold;
+    color: #0A8000;
+}
+
+.statusFail{
+    composes: infoText;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FD6A02;
+}
+
+@keyframes opacity { 
+    from { opacity: 0; } 
+    to { opacity: 1; } 
+}
+
+.addButton{
+    font-family: sans-serif;
+    outline: none;
+    line-height: 1.7;
+    font-size: 14px;
+    border-radius: 2px;
+    min-width: 130px;
+    padding: 0.3rem 0;
+    justify-content: center;
+    height: 46px;
+    font-weight: bolder;
+    border: 1px solid #dee2e6;
+    color: #95247B;
+    margin: 0 22px;
+}
+.addButton:hover{
+    color: #333333;
+    transition: all ease-in-out 0.4s;
+}

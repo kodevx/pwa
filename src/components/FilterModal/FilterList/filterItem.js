@@ -6,7 +6,7 @@ import FilterDefault from './filterDefault';
 import Swatch from '../../ProductOptions/swatchFilter';
 
 const FilterItem = props => {
-    const { filterApi, filterState, group, isSwatch, item } = props;
+    const { filterApi, filterState, group, isSwatch, item,applyFilters } = props;
     const { toggleItem } = filterApi;
     const { title, value } = item;
     const isSelected = filterState && filterState.has(item);
@@ -29,7 +29,7 @@ const FilterItem = props => {
         <Tile
             isSelected={isSelected}
             item={tileItem}
-            onClick={handleClick}
+            onClick={()=>{ applyFilters();handleClick();}}
             title={title}
             value={value}
         />

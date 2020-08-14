@@ -23,7 +23,7 @@ const getClassName = (name, isSelected, hasFocus) =>
 
 const Swatch = props => {
     const { classes: propsClasses, isSelected, hasFocus,item: { label, value_index },style,title, ...restProps } = props;
-    console.log('SwatchFilter Props',props);
+    // console.log('SwatchFilter Props',props);
 
     const classes = mergeClasses(defaultClasses, propsClasses);
     const iconClassName = isSelected ? classes.iconActive : classes.icon;

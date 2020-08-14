@@ -11,7 +11,7 @@ const FilterSearch = lazy(() => import('../filterSearch'));
 const labels = new WeakMap();
 
 const FilterList = props => {
-    const { filterApi, filterState, group, isSwatch, items, name } = props;
+    const { filterApi, filterState, group, isSwatch, items, name,applyFilters } = props;
     const classes = mergeClasses(defaultClasses, props.classes);
     const itemsClass = isSwatch ? classes.swatches : classes.items;
 
@@ -36,6 +36,7 @@ const FilterList = props => {
                             group={group}
                             isSwatch={isSwatch}
                             item={item}
+                            applyFilters={applyFilters}
                         />
                     </li>
                 );

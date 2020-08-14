@@ -11,7 +11,7 @@ import FilterList from './FilterList';
 import defaultClasses from './filterBlock.css';
 
 const FilterBlock = props => {
-    const { filterApi, filterState, group, items, name } = props;
+    const { filterApi, filterState, group, items, name,applyFilters } = props;
     const talonProps = useFilterBlock({ group });
     const { handleClick, isExpanded, isSwatch } = talonProps;
     const iconSrc = isExpanded ? ArrowUp : ArrowDown;
@@ -40,6 +40,7 @@ const FilterBlock = props => {
                     isSwatch={isSwatch}
                     items={items}
                     name={name}
+                    applyFilters={applyFilters}
                 />
             </Form>
         </li>

@@ -1,0 +1,17 @@
+.root {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0;
+}
+
+.root p {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+}
+
+.root ul {
+    list-style-type: disc;
+    margin: 0 0 1rem;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+}

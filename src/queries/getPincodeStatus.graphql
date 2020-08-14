@@ -1,0 +1,13 @@
+query sendCheckPincode($product_id: Int!,$pincode: String!){
+  checkPincode(product_id:$product_id, pincode: $pincode){
+    message
+    status
+  }
+}
+
+# query sendCheckPincode($product_id: Int!,$pincode: String!){
+#   checkPincode(product_id:$product_id, pincode: $pincode){
+#    message
+#    status
+#   }
+# }
