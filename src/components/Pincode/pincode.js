@@ -7,7 +7,8 @@ import { mergeClasses } from '../../classify';
 const Pincode = props =>{
 
     const classes = mergeClasses(props.classes,defaultClasses);
-    const talonProps = usePinCode();
+    const { id } = props;
+    const talonProps = usePinCode({ id });
     const { buttonMode ,setPinCode, getPinCodeStatus, resetDefault, response :data } = talonProps;
     // console.log("talonProps",talonProps);
     const { status, message, info } = data ;
@@ -24,7 +25,7 @@ const Pincode = props =>{
         <div className={classes.root}>
           <h5 className={classes.title}>When will I receive my order?</h5>
           <div className={classes.container}>
-            <input type="text" required className={classes.input} placeholder={"Enter Delivery Pin Code"} onChange={(e)=>{setPinCode(e)}}/>
+            <input type="text" className={classes.input} placeholder={"Enter Delivery Pin Code"} onChange={(e)=>{setPinCode(e)}}/>
             {buttonElement}
           </div>
           {infoText}

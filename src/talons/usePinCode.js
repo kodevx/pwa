@@ -3,8 +3,9 @@ import { useLazyQuery } from '@apollo/react-hooks';
 import GET_PINCODE_STATUS from '../queries/getPincodeStatus.graphql';
 
 const usePinCode = props => {
+  const { id } = props; console.log('id: ',id)
   const [buttonMode,setButtonMode] = useState(true);
-  const [pin,setPin] = useState('');
+  const [pinCode,setPin] = useState('');
   const [getStatus,{ data, error }] = useLazyQuery(GET_PINCODE_STATUS);
   const response = data ? { ...data.checkPincode, info: false}: { info: true };
 
@@ -30,8 +31,8 @@ const usePinCode = props => {
       setButtonMode(!buttonMode);
       getStatus({ 
         variables: {
-        "product_id": 1152, //get the prop from productFullDetail.js  ** important **
-        "pincode": pin
+        "product_id": id, //get the prop from productFullDetail.js  ** important **
+        "pincode": pinCode
         }
       });
   }

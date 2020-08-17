@@ -44,7 +44,7 @@ const ProductFullDetail = props => {
         productDetails,
         quantity
     } = talonProps;
-    console.log("Product Details",product);
+    // console.log("Product Details",product);
     const classes = mergeClasses(defaultClasses, props.classes);
     
     const options = isProductConfigurable(product) ? (
@@ -93,7 +93,7 @@ const ProductFullDetail = props => {
                             BUY NOW
                         </Button>
                      </section>
-                        <Pincode />
+                        <Pincode id={product.id}/>
                     </p>
                 </section>
                 <section className={classes.imageCarousel}>
